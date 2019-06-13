@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="WeddingStoreDesktop.Views.ucThongKe"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WeddingStoreDesktop.Views"
+             xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"  Background="#FF7F8585">
+    <Grid>
+        <!--<TabControl>
+            <TabItem Header="Doanh Thu">-->
+        <StackPanel Orientation="Vertical" Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="10">
+                    <ComboBox ItemsSource="{Binding LstThang}" material:HintAssist.Hint="Chọn tháng"
+                                      SelectedItem="{Binding Thang, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      IsEnabled="{Binding op}"></ComboBox>
+                    <RadioButton Content="Theo tháng" VerticalAlignment="Center" Margin="10" Checked="thang_Checked"
+                                         GroupName="op"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="10">
+                    <ComboBox ItemsSource="{Binding LstThang}" material:HintAssist.Hint="Từ tháng"
+                                      SelectedItem="{Binding FromThang, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      IsEnabled="{Binding !op, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                    <Label Content="-->" VerticalAlignment="Center" FontWeight="Bold" Margin="5"/>
+                    <ComboBox ItemsSource="{Binding LstThang, StringFormat='ahihi {0:N}'}" material:HintAssist.Hint="Đến tháng"
+                                      SelectedItem="{Binding ToThang, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      IsEnabled="{Binding !op, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                    <RadioButton Content="Custom" VerticalAlignment="Center" Margin="10" 
+                                         GroupName="op" Checked="custom_Checked"/>
+                </StackPanel>
+
+                <TextBox material:HintAssist.Hint="Nhập năm:" FontWeight="Bold" Grid.Column="2"
+                         VerticalAlignment="Center" Margin="10,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         Text="{Binding nam, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Button Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Show_Click">
+                    <material:PackIcon Kind="Show" Width="30" Height="30" VerticalAlignment="Center"/>
+                </Button>
+            </Grid>
+            <TabControl>
+                <TabItem Header="Biểu đồ">
+                    <!--<local:ucBieuDoHoaDon HorizontalAlignment="Left" Height="475" Width="703" BarsColor="SkyBlue" Margin="23,0,0,0"/>-->
+                    <Grid x:Name="gridBieuDo"></Grid>
+                </TabItem>
+
+                <TabItem Header="Tổng quát" Height="Auto">
+                    <Grid x:Name="gridTongQuat">
+
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+        <!--</TabItem>
+
+            <TabItem Header="Sản phẩm">
+
+            </TabItem>
+        </TabControl>-->
+    </Grid>
+</UserControl>

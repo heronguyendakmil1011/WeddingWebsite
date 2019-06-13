@@ -1,0 +1,144 @@
+﻿<Window x:Class="WeddingStoreDesktop.Views.ThemNhanVien"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeddingStoreDesktop.Views"
+        xmlns:converter="clr-namespace:WeddingStoreDesktop.Converters"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="ThemNhanVien" Height="600" Width="800">
+
+    <Window.Resources>
+        <converter:ConvertDisplayImage x:Key="myAvatar"/>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="10,5"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FF7CDCAC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#FF57A29B">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Ellipse Width="90" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Column="0">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/WeddingStoreDesktop;component/Images/addEmployee.png"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <TextBlock Grid.Column="1" FontSize="25" FontWeight="Bold" Foreground="White" Margin="25,0"
+                       Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="#FF9AE4DD">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical" Margin="10">
+                <Image Source="{Binding myNV.Avatar,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource myAvatar}}"
+                       Stretch="Fill">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding ChooseImageCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <TextBlock Text="{Binding myNV.MaNV, UpdateSourceTrigger=PropertyChanged}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"
+                           Margin="7"/>
+            </StackPanel>
+
+            <Grid Grid.Column="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Tên nhân viên:"/>
+                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding myNV.TenNV,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <RadioButton Content="Nam" Margin="8,0" GroupName="GioiTinh"
+                                     IsChecked="{Binding checkNam, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <RadioButton Content="Nữ" Margin="8,0" GroupName="GioiTinh"
+                                     IsChecked="{Binding checkNu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Ngày sinh:" Grid.Row="0"/>
+                    <DatePicker Grid.Row="1" Text="{Binding myNV.NgaySinh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                FontSize="15"/>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Địa chỉ:" Grid.Row="0"/>
+                    <TextBox Grid.Row="1" Text="{Binding myNV.DiaChi, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Số điện thoại:" Grid.Row="0"/>
+                <TextBox Grid.Row="1" Text="{Binding myNV.SoDT, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+
+                <Grid Grid.Row="4" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Lương: (VNĐ/ tiếng)" Grid.Column="0"/>
+                    <TextBox Text="{Binding myNV.Luong, StringFormat=' {0:0,0}', UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"/>
+                </Grid>
+        </Grid>
+
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Save" FontSize="20" Width="100" Height="50" Margin="15,0"
+                    Command="{Binding SaveCommand}"/>
+            <Button Content="Cancel" FontSize="20" Width="100" Height="50" Margin="15,0" Background="#FFE6452B"
+                    Command="{Binding CancelCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

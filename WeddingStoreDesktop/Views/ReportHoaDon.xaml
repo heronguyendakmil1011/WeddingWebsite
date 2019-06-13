@@ -1,0 +1,32 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeddingStoreDesktop.Views"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" x:Class="WeddingStoreDesktop.Views.ReportHoaDon"
+        mc:Ignorable="d"
+        Background="#c2d3ef" SizeToContent="WidthAndHeight"
+        Title="ReportHoaDon" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="ahihi">
+        </Grid>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,0,10">
+            <Button Height="Auto" Width="Auto" Margin="5" Command="{Binding PayCommand}">
+                <material:PackIcon Kind="Payment" Width="30" Height="30"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Button>
+
+            <Button Height="Auto" Width="Auto" Margin="5" Command="{Binding CancelCommand}">
+                <material:PackIcon Kind="Cancel" Width="30" Height="30" 
+                                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,62 @@
+﻿<Window x:Class="WeddingStoreDesktop.Views.ModifySoLuong"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeddingStoreDesktop.Views"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:converter="clr-namespace:WeddingStoreDesktop.Converters"
+        mc:Ignorable="d" SizeToContent="Height" Width="600" Background="#8faee0"
+        WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <converter:BoolToVisibilityConverter TrueValue="Visible" FalseValue="Collapsed" x:Key="myVisible"/>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0" x:Name="gridThongTin" Margin="5">
+
+        </Grid>
+        
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{Binding MaxSoLuong,UpdateSourceTrigger=PropertyChanged,StringFormat='Số lượng tối đa: {0:0,0}'}"
+                       Visibility="{Binding IsRequired,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource myVisible}}"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+
+            <material:Card Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Số lượng: " FontSize="20" FontWeight="Bold" Margin="10,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtSoLuong" Text="{Binding soLuong,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                             Margin="5" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left"/>
+                </StackPanel>
+
+            </material:Card>
+
+            <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"
+                       Text="{Binding ThanhTien,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,StringFormat='Thành tiền: {0:0,0}'}"/>
+
+            <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                <Button Height="Auto" Width="Auto" Command="{Binding SaveCommand}">
+                    <material:PackIcon Kind="ContentSave" Height="30" Width="30"/>
+                </Button>
+
+                <Button Height="Auto" Width="Auto" Margin="20,0" Command="{Binding CancelCommand}">
+                    <material:PackIcon Kind="Cancel" Height="30" Width="30"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

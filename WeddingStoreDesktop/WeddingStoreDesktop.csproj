@@ -1,0 +1,736 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB4F30EB-D1E1-42E7-96DE-3E810E4AFE63}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WeddingStoreDesktop</RootNamespace>
+    <AssemblyName>WeddingStoreDesktop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ChurchIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\WeddingStoreApp\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="sapbusinessobjects.wpf.viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlClient, Version=4.5.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.6.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.5.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Chart.Controls.4.7.2046\lib\net35\System.Web.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Chart.Controls.4.7.2046\lib\net35\System.Web.DataVisualization.Design.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Controls.DataVisualization.Toolkit.4.0.0.0\lib\net40-Client\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Chart.Controls.4.7.2046\lib\net35\System.Windows.Forms.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Chart.Controls.4.7.2046\lib\net35\System.Windows.Forms.DataVisualization.Design.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\WeddingStoreApp\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\BoolToValueConverter.cs" />
+    <Compile Include="Converters\ConvertByteToImage.cs" />
+    <Compile Include="Converters\ConvertDateTimeToString.cs" />
+    <Compile Include="Converters\ConvertDisplayImage.cs" />
+    <Compile Include="Converters\ConvertObjectToBinary.cs" />
+    <Compile Include="Converters\ConvertTinhTrangToBrush.cs" />
+    <Compile Include="Converters\ConvertToEnable.cs" />
+    <Compile Include="Converters\ConvertToImage.cs" />
+    <Compile Include="Converters\ConvertToVisibility.cs" />
+    <Compile Include="Converters\EnumToBoolExtension.cs" />
+    <Compile Include="Functions\AddImageToResource.cs" />
+    <Compile Include="Functions\Check.cs" />
+    <Compile Include="Functions\CheckTinhNang.cs" />
+    <Compile Include="Functions\GetMaxID.cs" />
+    <Compile Include="Functions\Tinh.cs" />
+    <Compile Include="Interfaces\Dialog\ActionCommand.cs" />
+    <Compile Include="Interfaces\Dialog\DialogCloseRequestedEventArgs.cs" />
+    <Compile Include="Interfaces\Dialog\DialogService.cs" />
+    <Compile Include="Interfaces\Dialog\IDialog.cs" />
+    <Compile Include="Interfaces\Dialog\IDialogRequestClose.cs" />
+    <Compile Include="Interfaces\Dialog\IDialogService.cs" />
+    <Compile Include="Interfaces\IBaseService.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\DataProvider.cs" />
+    <Compile Include="Models\DesktopModel\BaseModel.cs" />
+    <Compile Include="Models\DesktopModel\ChamCongModel.cs" />
+    <Compile Include="Models\DesktopModel\HoaDonKhachHangModel.cs" />
+    <Compile Include="Models\DesktopModel\KhoVatLieuAoModel.cs" />
+    <Compile Include="Models\DesktopModel\LuongNhanVienModel.cs" />
+    <Compile Include="Models\DesktopModel\NgayPhanCongModel.cs" />
+    <Compile Include="Models\DesktopModel\PhanCongNhanVienModel.cs" />
+    <Compile Include="Models\DesktopModel\SanPhamByDichVuModel.cs" />
+    <Compile Include="Models\DesktopModel\ThongTinChiTietVatLieuModel.cs" />
+    <Compile Include="Models\DesktopModel\ThongTinMauModel.cs" />
+    <Compile Include="Models\DesktopModel\ThongTinNgayModel.cs" />
+    <Compile Include="Models\DesktopModel\ThongTinPhatSinhModel.cs" />
+    <Compile Include="Models\DesktopModel\ThongTinVatLieuChiTietMauModel.cs" />
+    <Compile Include="Models\DesktopModel\TinhNangModel.cs" />
+    <Compile Include="Models\DesktopModel\VatLieuNhapModel.cs" />
+    <Compile Include="Models\SystemModel\Blog.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\ChiTietDonGiaNhapHang.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\ChiTietHoaDon.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\ChiTietSanPham.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\DatLich.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\DichVu.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\DonGiaNhapHang.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\HoaDon.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\KhachHang.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\KhoVatLieu.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\LoaiDichVu.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\NhaCungCap.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\NhanVien.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\PhanCong.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\PhatSinh.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\SanPham.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\TaiKhoan.cs">
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\WeddingStoreModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WeddingStoreModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\WeddingStoreModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WeddingStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemModel\WeddingStoreModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WeddingStoreModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DesktopService\ChamCongService.cs" />
+    <Compile Include="Services\DesktopService\HoaDonKhachHangService.cs" />
+    <Compile Include="Services\DesktopService\LuongNhanVienService.cs" />
+    <Compile Include="Services\DesktopService\NgayPhanCongService.cs" />
+    <Compile Include="Services\DesktopService\NhanVienPhanCongService.cs" />
+    <Compile Include="Services\DesktopService\ThongTinChiTietVatLieuService.cs" />
+    <Compile Include="Services\DesktopService\ThongTinMauService.cs" />
+    <Compile Include="Services\DesktopService\ThongTinPhatSinhService.cs" />
+    <Compile Include="Services\DesktopService\ThongTinVatLieuChiTietMauService.cs" />
+    <Compile Include="Services\DesktopService\VatLieuNhapService.cs" />
+    <Compile Include="Services\KhoVatLieuService.cs" />
+    <Compile Include="Services\MockTinhNangRepository.cs" />
+    <Compile Include="Services\SystemService\SanPhamService.cs" />
+    <Compile Include="Services\SystemService\VatLieuService.cs" />
+    <Compile Include="Shared.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\DangNhapViewModel.cs" />
+    <Compile Include="ViewModels\DiemDanhNhanVienViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\ModifyChiTietDonGiaViewModel.cs" />
+    <Compile Include="ViewModels\ModifyDonGiaViewModel.cs" />
+    <Compile Include="ViewModels\ModifyNhaCungCapViewModel.cs" />
+    <Compile Include="ViewModels\ModifySoLuongViewModel.cs" />
+    <Compile Include="ViewModels\ModifyThongTinViewModel.cs" />
+    <Compile Include="ViewModels\ReportHoaDonViewModel.cs" />
+    <Compile Include="ViewModels\TaiKhoanViewModel.cs" />
+    <Compile Include="ViewModels\testReportViewModel.cs" />
+    <Compile Include="ViewModels\ThemChiTietHDViewModel.cs" />
+    <Compile Include="ViewModels\ThemDichVuViewModel.cs" />
+    <Compile Include="ViewModels\ThemNhanVienViewModel.cs" />
+    <Compile Include="ViewModels\ThemPhanCongNhanVienViewModel.cs" />
+    <Compile Include="ViewModels\ThemPhatSinhViewModel.cs" />
+    <Compile Include="ViewModels\ThemSanPhamViewModel.cs" />
+    <Compile Include="ViewModels\ThemVatLieuViewModel.cs" />
+    <Compile Include="ViewModels\ThongTinAccountViewModel.cs" />
+    <Compile Include="ViewModels\ucBangPhanCongViewModel.cs" />
+    <Compile Include="ViewModels\ucBieuDoDoanhThuViewModel.cs" />
+    <Compile Include="ViewModels\ucChiTietHoaDonViewModel.cs" />
+    <Compile Include="ViewModels\ucChiTietSanPhamViewModel.cs" />
+    <Compile Include="ViewModels\ucDoanhThuTongQuatViewModel.cs" />
+    <Compile Include="ViewModels\ucHoaDonNhapViewModel.cs" />
+    <Compile Include="ViewModels\ucHoaDonViewModel.cs" />
+    <Compile Include="ViewModels\ucNavTopViewModel.cs" />
+    <Compile Include="ViewModels\ucNhanVienViewModel.cs" />
+    <Compile Include="ViewModels\ucPhanCongNhanVienViewModel.cs" />
+    <Compile Include="ViewModels\ucPhatSinhViewModel.cs" />
+    <Compile Include="ViewModels\ucReportHoaDonViewModel.cs" />
+    <Compile Include="ViewModels\ucReportLuongNhanVienViewModel.cs" />
+    <Compile Include="ViewModels\ucSanPhamViewModel.cs" />
+    <Compile Include="ViewModels\ucThemViewModel.cs" />
+    <Compile Include="ViewModels\ucThongKeViewModel.cs" />
+    <Compile Include="ViewModels\ucThongTinSanPhamViewModel.cs" />
+    <Compile Include="ViewModels\ucThongTinVatLieuViewModel.cs" />
+    <Compile Include="ViewModels\ucVatLieuViewModel.cs" />
+    <Compile Include="Views\DangNhap.xaml.cs">
+      <DependentUpon>DangNhap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiemDanhNhanVien.xaml.cs">
+      <DependentUpon>DiemDanhNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifyChiTietDonGia.xaml.cs">
+      <DependentUpon>ModifyChiTietDonGia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifyDonGiaNhap.xaml.cs">
+      <DependentUpon>ModifyDonGiaNhap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifyNhaCungCap.xaml.cs">
+      <DependentUpon>ModifyNhaCungCap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifySoLuong.xaml.cs">
+      <DependentUpon>ModifySoLuong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModifyThongTin.xaml.cs">
+      <DependentUpon>ModifyThongTin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportHoaDon.xaml.cs">
+      <DependentUpon>ReportHoaDon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DanhSachTaiKhoan.xaml.cs">
+      <DependentUpon>DanhSachTaiKhoan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemChiTietHD.xaml.cs">
+      <DependentUpon>ThemChiTietHD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemDichVu.xaml.cs">
+      <DependentUpon>ThemDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemNhanVien.xaml.cs">
+      <DependentUpon>ThemNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemPhanCongNhanVien.xaml.cs">
+      <DependentUpon>ThemPhanCongNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemPhatSinh.xaml.cs">
+      <DependentUpon>ThemPhatSinh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemSanPham.xaml.cs">
+      <DependentUpon>ThemSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemVatLieu.xaml.cs">
+      <DependentUpon>ThemVatLieu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThongTinAccount.xaml.cs">
+      <DependentUpon>ThongTinAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucBangPhanCong.xaml.cs">
+      <DependentUpon>ucBangPhanCong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucBieuDoDoanhThu.xaml.cs">
+      <DependentUpon>ucBieuDoDoanhThu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucChiTietHoaDon.xaml.cs">
+      <DependentUpon>ucChiTietHoaDon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucChiTietSanPham.xaml.cs">
+      <DependentUpon>ucChiTietSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucDoanhThuTongQuat.xaml.cs">
+      <DependentUpon>ucDoanhThuTongQuat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucHoaDon.xaml.cs">
+      <DependentUpon>ucHoaDon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucHoaDonNhap.xaml.cs">
+      <DependentUpon>ucHoaDonNhap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucNavTop.xaml.cs">
+      <DependentUpon>ucNavTop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucNhanVien.xaml.cs">
+      <DependentUpon>ucNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucPhanCongNhanVien.xaml.cs">
+      <DependentUpon>ucPhanCongNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucPhatSinh.xaml.cs">
+      <DependentUpon>ucPhatSinh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucReportHoaDon.xaml.cs">
+      <DependentUpon>ucReportHoaDon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucReportLuongNhanVien.xaml.cs">
+      <DependentUpon>ucReportLuongNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucSanPham.xaml.cs">
+      <DependentUpon>ucSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucTestReport.xaml.cs">
+      <DependentUpon>ucTestReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucThem.xaml.cs">
+      <DependentUpon>ucThem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucThongKe.xaml.cs">
+      <DependentUpon>ucThongKe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucThongTinSanPham.xaml.cs">
+      <DependentUpon>ucThongTinSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucThongTinVatLieu.xaml.cs">
+      <DependentUpon>ucThongTinVatLieu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucVatLieu.xaml.cs">
+      <DependentUpon>ucVatLieu.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\reportHoaDon.rdlc" />
+    <EmbeddedResource Include="Views\reportLuongNhanVien.rdlc" />
+    <EntityDeploy Include="Models\SystemModel\WeddingStoreModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WeddingStoreModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\SystemModel\WeddingStoreModel.edmx.diagram">
+      <DependentUpon>WeddingStoreModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\App.datasource" />
+    <None Include="Properties\DataSources\Shared.datasource" />
+    <None Include="Properties\DataSources\WeddingStoreDesktop.Models.DesktopModel.PhanCongNhanVienModel.datasource" />
+    <None Include="Properties\DataSources\WeddingStoreDesktop.Models.DesktopModel.ThongTinMauModel.datasource" />
+    <None Include="Properties\DataSources\WeddingStoreDesktop.Models.DesktopModel.ThongTinPhatSinhModel.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WeddingStoreApp\WeddingStoreData\WeddingStoreData.csproj">
+      <Project>{49fcbebd-38a5-4416-bd6a-2f906184ccf3}</Project>
+      <Name>WeddingStoreData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\DangNhap.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DiemDanhNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModifyChiTietDonGia.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModifyDonGiaNhap.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModifyNhaCungCap.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModifySoLuong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModifyThongTin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReportHoaDon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DanhSachTaiKhoan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThemChiTietHD.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ThemDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThemNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ThemPhanCongNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThemPhatSinh.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ThemSanPham.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ThemVatLieu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ThongTinAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ucBangPhanCong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucBieuDoDoanhThu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ucChiTietHoaDon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucChiTietSanPham.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucDoanhThuTongQuat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucHoaDon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucHoaDonNhap.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucNavTop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucPhanCongNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucPhatSinh.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucReportHoaDon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ucReportLuongNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ucSanPham.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucTestReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ucThem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucThongKe.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucThongTinSanPham.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucThongTinVatLieu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ucVatLieu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\addEmployee.png" />
+    <Resource Include="Images\addSanPham.png" />
+    <Resource Include="Images\addVatLieu.png" />
+    <Resource Include="Images\hoadonnhap.png" />
+    <Resource Include="Images\home.jpg" />
+    <Resource Include="Images\mautrangtri.png" />
+    <Resource Include="Images\nhacungcap.png" />
+    <Resource Include="Images\nhapVatLieu.png" />
+    <Resource Include="Images\noimage.png" />
+    <Resource Include="Images\testVL.jpg" />
+    <Resource Include="Images\TinhNang\bangphancong.png" />
+    <Resource Include="Images\TinhNang\hoadon.png" />
+    <Resource Include="Images\TinhNang\hoadonnhap.png" />
+    <Resource Include="Images\TinhNang\khachhang.png" />
+    <Resource Include="Images\TinhNang\mautrangtri.png" />
+    <Resource Include="Images\TinhNang\nhacungcap.png" />
+    <Resource Include="Images\TinhNang\nhanvien.png" />
+    <Resource Include="Images\TinhNang\them.png" />
+    <Resource Include="Images\TinhNang\thongke.png" />
+    <Resource Include="Images\TinhNang\vatlieu.png" />
+    <Resource Include="Images\Tools\1no.png" />
+    <Resource Include="Images\Tools\1yes.png" />
+    <Resource Include="Images\Tools\2no.png" />
+    <Resource Include="Images\Tools\2yes.png" />
+    <Resource Include="Images\Tools\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\SystemModel\WeddingStoreModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WeddingStoreModel.edmx</DependentUpon>
+      <LastGenOutput>WeddingStoreModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SystemModel\WeddingStoreModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WeddingStoreModel.edmx</DependentUpon>
+      <LastGenOutput>WeddingStoreModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\church.png" />
+    <Resource Include="Images\ChurchIcon.ico" />
+    <Resource Include="ChurchIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

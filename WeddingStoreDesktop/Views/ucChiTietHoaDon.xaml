@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="WeddingStoreDesktop.Views.ucChiTietHoaDon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WeddingStoreDesktop.Views"
+             xmlns:converter="clr-namespace:WeddingStoreDesktop.Converters"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             Width="Auto" Height="Auto"
+             xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding ChangedKhoAoCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <UserControl.Resources>
+        <converter:ConvertDisplayImage x:Key="myConvertToImage"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Danh sách sản phẩm" Margin="5" Grid.RowSpan="2" Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+
+                <ListView Grid.Row="0" Background="Aqua" x:Name="lstSanPham"
+                          ItemsSource="{Binding LstChiTiet, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedItem="{Binding SelectedMau, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
+                          SelectionChanged="SanPham_Click">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="3" Grid.Column="0" Stretch="Fill" Height="80"
+                                       Source="{Binding HinhMoTa,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource myConvertToImage}}"/>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0"
+                                             Orientation="Vertical">
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                                                   Text="{Binding TenSP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1"
+                                                   Text="{Binding SoLuong, StringFormat='Số lượng: {0:0}', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1"
+                                                   Text="{Binding ThanhTien, StringFormat='Thành tiền: {0:0,0} VNĐ', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                </StackPanel>
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <material:PopupBox Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                   Margin="8,0,0,0"
+                                   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}">
+                    <StackPanel>
+                        <Button Command="{Binding RefreshCommand}">
+                            <material:PackIcon Kind="Refresh"/>
+                        </Button>
+                        <Button Command="{Binding AddCommand}">
+                            <material:PackIcon Kind="Add"/>
+                        </Button>
+                        <Button Command="{Binding ModifyCommand}">
+                            <material:PackIcon Kind="ModeEdit"/>
+                        </Button>
+                        <Button Command="{Binding DeleteCommand}">
+                            <material:PackIcon Kind="Delete"/>
+                        </Button>
+                    </StackPanel>
+                </material:PopupBox>
+
+                <!--<StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button Width="Auto" Height="Auto" Margin="5,0,5,0">
+                        <material:PackIcon Kind="ContentSave" Width="30" Height="30"/>
+                    </Button>
+                    <Button Width="Auto" Height="Auto" Margin="5,0,5,0">
+                        <material:PackIcon Kind="ModeEdit" Width="30" Height="30" />
+                    </Button>
+                    <Button Width="Auto" Height="Auto" Margin="5,0,5,0">
+                        <material:PackIcon Kind="Add" Width="30" Height="30" />
+                    </Button>
+                    <Button Width="Auto" Height="Auto" Margin="5,0,5,0">
+                        <material:PackIcon Kind="Delete" Width="30" Height="30" />
+                    </Button>
+                </StackPanel>-->
+            </Grid>
+        </GroupBox>
+        
+        <GroupBox Header="Thông tin mẫu" Grid.Column="1" Grid.Row="0">
+            <Grid x:Name="gridThongTinMau" Margin="5"></Grid>
+        </GroupBox>
+
+        <GroupBox Header="Chi Tiết Mẫu" Grid.Column="2" Grid.Row="1">
+            <Grid x:Name="gridChiTietMau" Margin="5"></Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="WeddingStoreDesktop.Views.ucBieuDoDoanhThu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeddingStoreDesktop.Views"
+        xmlns:chartToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+        mc:Ignorable="d" Height="450" Width="800">
+
+    <Grid>
+        <chartToolkit:Chart Title="{Binding Title,UpdateSourceTrigger=PropertyChanged}">
+            <chartToolkit:Chart.Axes>
+                <chartToolkit:LinearAxis Orientation="Y" Minimum="0" Title="VNĐ" FontWeight="Bold" Margin="0,0,10,0">
+                    <chartToolkit:LinearAxis.AxisLabelStyle>
+                        <Style TargetType="chartToolkit:AxisLabel">
+                            <Setter Property="StringFormat" Value="{}{0:0,0}"/>
+                        </Style>
+                    </chartToolkit:LinearAxis.AxisLabelStyle>
+                </chartToolkit:LinearAxis>
+            </chartToolkit:Chart.Axes>
+            <chartToolkit:Chart.Series>
+                <chartToolkit:ColumnSeries ItemsSource="{Binding dicLuongNhanVien,UpdateSourceTrigger=PropertyChanged}"
+                                           IndependentValueBinding="{Binding Key}"
+                                           DependentValueBinding= "{Binding Value}"
+                                           Title="Lương nhân viên"/>
+
+                <chartToolkit:ColumnSeries ItemsSource="{Binding dicVatLieuNhap,UpdateSourceTrigger=PropertyChanged}"
+                                           IndependentValueBinding="{Binding Key}"
+                                           DependentValueBinding= "{Binding Value}"
+                                           Title="Hóa đơn nhập"/>
+
+                <chartToolkit:ColumnSeries ItemsSource="{Binding dicHoaDon,UpdateSourceTrigger=PropertyChanged}"
+                                           IndependentValueBinding="{Binding Key}"
+                                           DependentValueBinding= "{Binding Value}"
+                                           Title="Hóa đơn bán"/>
+            </chartToolkit:Chart.Series>
+        </chartToolkit:Chart>
+    </Grid>
+</UserControl>

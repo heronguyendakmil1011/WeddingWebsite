@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="WeddingStoreDesktop.Views.ucHoaDonNhap"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WeddingStoreDesktop.Views"
+             xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:ahihi="clr-namespace:Xceed.Wpf.AvalonDock.Themes.Controls;assembly=Xceed.Wpf.AvalonDock.Themes.Aero"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Grid.Row="0" Grid.ColumnSpan="2" Header="Nhà cung cấp">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid ItemsSource="{Binding LstNhaCungCap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding SelectedNhaCungCap, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="5" Grid.Column="0" IsReadOnly="True"
+                       AutoGenerateColumns="False" CanUserSortColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding TenNCC}" Header="Tên nhà cung cấp"/>
+                        <DataGridTextColumn Binding="{Binding DiaChi}" Header="Địa chỉ"/>
+                        <DataGridTextColumn Binding="{Binding SoDT}" Header="Số điện thoại"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Grid.Column="1">
+                    <material:PopupBox Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                   Margin="8"
+                                   Style="{StaticResource MaterialDesignMultiFloatingActionAccentPopupBox}">
+                        <StackPanel>
+                            <Button Command="{Binding AddNhaCungCapCommand}">
+                                <material:PackIcon Kind="Add"/>
+                            </Button>
+                            <Button Command="{Binding ModifyNhaCungCapCommand}">
+                                <material:PackIcon Kind="Pen"/>
+                            </Button>
+                            <Button Command="{Binding DeleteNhaCungCapCommand}">
+                                <material:PackIcon Kind="Delete"/>
+                            </Button>
+                        </StackPanel>
+                    </material:PopupBox>
+                </Grid>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Grid.Column="0" Header="Hóa đơn nhập">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ComboBox Grid.Column="0" FontSize="15" material:HintAssist.Hint="Chọn tháng" ItemsSource="{Binding LstThang, UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding SelectedThang, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="3"/>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="Năm: " Margin="10,0" FontSize="15" FontWeight="Bold"/>
+                            <TextBox Text="{Binding Nam,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="13" FontWeight="Bold"
+                                     material:HintAssist.Hint="Nhập năm"/>
+                        </StackPanel>
+                    </Grid>
+                    
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Button Width="Auto" Height="Auto" Margin="5" Command="{Binding AddDonGiaNhapCommand}">
+                            <material:PackIcon Kind="Add" Width="30" Height="30"/>
+                        </Button>
+
+                        <Button Width="Auto" Height="Auto" Margin="5" Command="{Binding ModifyDonGiaNhapCommand}">
+                            <material:PackIcon Kind="Pen" Width="30" Height="30"/>
+                        </Button>
+
+                        <Button Width="Auto" Height="Auto" Margin="5" Background="Green">
+                            <material:PackIcon Kind="Payment" Width="30" Height="30"/>
+                        </Button>
+
+                        <Button Width="Auto" Height="Auto" Margin="5" Background="Red" Command="{Binding DeleteDonGiaNhapCommand}">
+                            <material:PackIcon Kind="Garbage" Width="30" Height="30"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                
+                <DataGrid Grid.Row="1" ItemsSource="{Binding LstDonGiaNhapHang, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding SelectedDG, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="5" AutoGenerateColumns="False" CanUserSortColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding MaDG}" Header="Mã đơn giá"/>
+                        <DataGridTextColumn Binding="{Binding NgayLap}" Header="Ngày lập"/>
+                        <DataGridTextColumn Binding="{Binding TongTien, StringFormat=' {0:0,0}'}" Header="Tổng tiền (VNĐ)"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Chi tiết hóa đơn nhập">
+            <DataGrid ItemsSource="{Binding LstChiTietDG, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="5" AutoGenerateColumns="False" CanUserSortColumns="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding TenVL}" Header="Tên vật liệu"/>
+                    <DataGridTextColumn Binding="{Binding SoLuong}" Header="Số lượng"/>
+                    <DataGridTextColumn Binding="{Binding ThanhTien, StringFormat=' {0:0,0}'}" Header="Thành tiền (VNĐ)"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </Grid>
+</UserControl>

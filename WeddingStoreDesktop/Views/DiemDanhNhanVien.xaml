@@ -1,0 +1,91 @@
+﻿<Window x:Class="WeddingStoreDesktop.Views.DiemDanhNhanVien"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:WeddingStoreDesktop.Views"
+        xmlns:converter="clr-namespace:WeddingStoreDesktop.Converters"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="DiemDanhNhanVien" Height="450" Width="800" Background="#FF54DE54">
+    <Window.Resources>
+        <converter:ConvertDisplayImage x:Key="myImage"/>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Source="{Binding myPCNV.Avatar, Converter={StaticResource myImage}}" Stretch="Fill" Grid.Row="0"/>
+            <TextBlock Text="{Binding myPCNV.TenNV}" HorizontalAlignment="Center" TextWrapping="Wrap" Grid.Row="1"/>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Ngày:" Grid.Row="0" Grid.Column="0"/>
+                <TextBlock Text="{Binding myPCNV.Ngay}" Grid.Row="0" Grid.Column="1"/>
+
+                <TextBlock Text="Thời gian đến:" Grid.Row="1" Grid.Column="0"/>
+                <TextBlock Text="{Binding myPCNV.ThoiGianDen}" Grid.Row="1" Grid.Column="1"/>
+
+                <TextBlock Text="Thời gian đi:" Grid.Row="2" Grid.Column="0"/>
+                <TextBlock Text="{Binding myPCNV.ThoiGianDi}" Grid.Row="2" Grid.Column="1"/>
+
+                <TextBlock Text="Tổng thời gian:" Grid.Row="3" Grid.Column="0"/>
+                <TextBlock Text="{Binding tongThoiGian}" Grid.Row="3" Grid.Column="1"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <RadioButton GroupName="typeCheck" Content="Đến" FontSize="15" FontWeight="Bold" Margin="20,0"
+                                 IsChecked="{Binding isDen, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                    <RadioButton GroupName="typeCheck" Content="Đi" FontSize="15" FontWeight="Bold" Margin="20,0"
+                                 IsChecked="{Binding isDi, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <xctk:TimePicker Value="{Binding myTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 Grid.Row="1" Grid.Column="0" Margin="10"/>
+                <Button Content="Save" Margin="10,5" Width="75" Grid.Row="1" Grid.Column="1" Command="{Binding SaveCommand}"/>
+            </Grid>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button  Content="Done" HorizontalAlignment="Center" Command="{Binding DoneCommand}"/>
+                <Button Content="Cancel" Margin="10,5" Width="75" Grid.Row="1" Grid.Column="1" Command="{Binding CancelCommand}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

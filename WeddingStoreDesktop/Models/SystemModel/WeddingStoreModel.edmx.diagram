@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="37e1a7246b2a43018ce3a92e64df7a7c" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="WeddingStoreDBModel.Blog" Width="1.5" PointX="7.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.ChiTietDonGiaNhapHang" Width="1.5" PointX="10.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.ChiTietHoaDon" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.ChiTietSanPham" Width="1.5" PointX="5.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.DatLich" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.DichVu" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.DonGiaNhapHang" Width="1.5" PointX="8" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.HoaDon" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.KhachHang" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.KhoVatLieu" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.LoaiDichVu" Width="1.5" PointX="1.5" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.NhaCungCap" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.NhanVien" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.PhanCong" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.PhatSinh" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.SanPham" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WeddingStoreDBModel.TaiKhoan" Width="1.5" PointX="5.25" PointY="21" IsExpanded="true" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_ChiTietDonGiaNhapHang_DonGiaNhapHang" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_ChiTietDonGiaNhapHang_KhoVatLieu1" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_ChiTietHoaDon_HoaDon" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_ChiTietHoaDon_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_ChiTietSanPham_KhoVatLieu" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_ChiTietSanPham_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_DatLich_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_DichVu_LoaiDichVu" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_SanPham_DichVu" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_DonGiaNhapHang_NhaCungCap" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_HoaDon_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_PhanCong_HoaDon" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_PhatSinh_HoaDon" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_PhatSinh_KhoVatLieu" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_PhanCong_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="WeddingStoreDBModel.FK_TaiKhoan_NhanVien1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="WeddingStoreDesktop.Views.ucBieuDoHoaDon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WeddingStoreDesktop.Views"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1000" Loaded="ucBieuDoHoaDon_Loaded">
+    <Grid x:Name="gridThongKe" Background="Transparent" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Row="0" Grid.Column="0" x:Name="wPanel" Width="525" Height="400" 
+                                         Margin="51,48,12,52"  Background="Transparent">
+            <Popup Name="popWindow" IsOpen="False" StaysOpen="False" Placement="MousePoint">
+                <Border Width="80" Height="30" Background="Transparent">
+                    <Label x:Name="lblPopup" Foreground="White">
+
+                    </Label>
+                </Border>
+            </Popup>
+        </WrapPanel>
+        <StackPanel x:Name="stkPanel" Width="600" Height="500" Orientation="Horizontal">
+
+        </StackPanel>
+        <Line x:Name="xAxis" X1="0" Y1="400" X2="645" Y2="400" Margin="5,0,0,0"
+                                      Stroke="SkyBlue" StrokeThickness="2">
+        </Line>
+        <Line x:Name="yAxis" X1="0" Y1="0" X2="0" Y2="400" Margin="5,0,0,0"
+                                      Stroke="SkyBlue" StrokeThickness="2">
+
+        </Line>
+    </Grid>
+</UserControl>
